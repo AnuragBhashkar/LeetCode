@@ -4,20 +4,16 @@ class Solution {
         int j=numbers.length-1;
         int index1=0;
         int index2=0;
-        int sum=0;
         while(i<j){
-            sum=numbers[i]+numbers[j];
-            if(sum==target){
+            if(numbers[i]+numbers[j]==target){
                 index1=i+1;
                 index2=j+1;
                 break;
             }
-            else if(sum>target) {
-                j--;
-                
+            else if(numbers[i]+numbers[j]>target) {
+                j--;              
             }
-            else{
-            
+            else{          
                 i++;
             }
         }
