@@ -2,18 +2,12 @@ class Solution {
     public int[] searchRange(int[] nums, int target) {
         int first=-1;
         int last=-1;
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]==target){
-                first=i;
-                break;
-            }
+        ArrayList<Integer> list=new ArrayList<>();
+        for(int ele : nums){
+            list.add(ele);
         }
-        for(int j=nums.length-1;j>=0;j--){
-            if(nums[j]==target){
-                last=j;
-                break;
-            }
-        }
+        first=list.indexOf(target);
+        last=list.lastIndexOf(target);
         return new int[]{first,last};
     }
 }
