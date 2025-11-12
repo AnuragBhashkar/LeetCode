@@ -5,14 +5,11 @@ class Solution {
         Arrays.sort(a);
         char[] b=t.toCharArray();
         Arrays.sort(b);
-        boolean flag=true;
         for(int i=0;i<s.length();i++){
             if(a[i]!=b[i]){
-                flag=false;
-                break;
+                return false;
             } 
         }
-        if(flag==false) return false;
-        else return true;
+        return true;
     }
 }
