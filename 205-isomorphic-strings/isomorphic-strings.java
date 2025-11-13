@@ -12,7 +12,7 @@ class Solution {
             }
         }
         for(int i=0;i<ch.length;i++){
-            ch[i]='\0';
+            ch[i]=0;
         }
         for(int i=0;i<s.length();i++){
             char ch1=t.charAt(i);
