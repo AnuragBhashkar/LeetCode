@@ -13,8 +13,8 @@ class Solution {
         }
         ans.append(ch[i]);
         if(j-i>1) ans.append(j-i);
-        for(int k=0;k<ans.length();k++){
-            ch[k]=ans.charAt(k);
+        for(i=0;i<ans.length();i++){
+            ch[i]=ans.charAt(i);
         }
         return ans.length();
     }
