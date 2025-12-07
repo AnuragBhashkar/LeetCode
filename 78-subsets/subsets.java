@@ -7,11 +7,7 @@ class Solution {
     }
     public void helper(int i,int[] nums,ArrayList<Integer> ans){
         if(i==nums.length){
-            ArrayList<Integer> list=new ArrayList<>();
-            for(int j=0;j<ans.size();j++){
-                list.add(ans.get(j));
-            }  
-            arr.add(list);
+            arr.add(new ArrayList<>(ans));
             return;
         }
         helper(i+1,nums,ans);//not take
