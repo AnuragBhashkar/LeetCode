@@ -1,4 +1,15 @@
 class Solution {
+    public int binarySearch(int[] nums,int value){
+        int lo=0,hi=nums.length-1;
+        while(lo<=hi){
+            int mid=lo+(hi-lo)/2;
+            if(nums[mid]>value) hi=mid-1;
+            else {
+                lo=mid+1;
+            }
+        }
+        return lo;
+    }
     public int[] answerQueries(int[] nums, int[] queries) {
 
         //1). sort
@@ -12,15 +23,7 @@ class Solution {
 
         //3). bs
         for(int i=0;i<queries.length;i++){
-            int lo=0,hi=nums.length-1;
-            while(lo<=hi){
-                int mid=lo+(hi-lo)/2;
-                if(nums[mid]>queries[i]) hi=mid-1;
-                else{
-                    ans[i]=Math.max(mid+1,ans[i]);
-                    lo=mid+1;
-                }
-            }
+            ans[i]=binarySearch(nums,queries[i]);
         }
 
         return ans;
