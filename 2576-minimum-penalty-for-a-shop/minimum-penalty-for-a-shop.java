@@ -18,7 +18,7 @@ class Solution {
         //Step-3(Add both):--
         int[] penalty=new int[n+1];
         int min=Integer.MAX_VALUE;
-        for(int i=0;i<n+1;i++){
+        for(int i=0;i<=n;i++){
             penalty[i]=prefix[i]+suffix[i];
             min=Math.min(min,penalty[i]);
         }
