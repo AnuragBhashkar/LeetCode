@@ -5,7 +5,7 @@ class Solution {
             if(s.charAt(i)!=' '){
                 len++;
             }
-            else if(len>0){
+            else if(len>0 && s.charAt(i)==' '){
                 break;
             }
         }
