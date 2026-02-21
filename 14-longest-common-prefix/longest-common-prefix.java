@@ -1,5 +1,6 @@
 class Solution {
     public String longestCommonPrefix(String[] str) {
+        if (str == null || str.length == 0) return "";
         StringBuilder sb=new StringBuilder(str[0]);
         for(String s:str){
             int i;
