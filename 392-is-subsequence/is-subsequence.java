@@ -9,7 +9,6 @@ class Solution {
             }
             j++;
             if(i==s.length()) return true;
-            // if(j==t.length()) return false;
         }
         return false;
     }
