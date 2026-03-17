@@ -10,8 +10,8 @@ class Solution {
             prefixSum[i]=prefixSum[i-1]+nums[i];
         }
 
-        for(int i=0;i<nums.length;i++){
-            freq=binarySearch(i,nums,k,prefixSum);
+        for(int targetIdx=0;targetIdx<nums.length;targetIdx++){
+            freq=binarySearch(targetIdx,nums,k,prefixSum);
             result=Math.max(result,freq);
         }
         return result;
