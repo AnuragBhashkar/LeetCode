@@ -6,12 +6,11 @@ class Solution {
             windowSum+=nums[i];
         }
         int i=0,j=k;
-        int avg=windowSum/k;
-        if(avg>=threshold) count++;
+        int target=k*threshold;
+        if(windowSum>=target) count++;
         while(j<nums.length){
             windowSum=windowSum-nums[i]+nums[j];
-            avg=windowSum/k;
-            if(avg>=threshold) count++;
+            if(windowSum>=target) count++;
             i++;
             j++;
         }
