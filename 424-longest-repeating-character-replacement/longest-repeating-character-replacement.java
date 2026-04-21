@@ -1,19 +1,22 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        int i=0,j=0,ans=0,mxFreq=0;
-        int[] freq=new int[26];
+        int maxLen=1;
+        int maxFreq=0;
+        int i=0,j=0;
+        Map<Character,Integer> map=new HashMap<>();
         while(j<s.length()){
-            freq[s.charAt(j)-'A']++;
-            mxFreq=Math.max(mxFreq,freq[s.charAt(j)-'A']);
-            if(j-i+1-mxFreq<=k){
-                ans=Math.max(ans,j-i+1);
-            }
-            else{
-                freq[s.charAt(i)-'A']--;
+            char ch=s.charAt(j);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+            maxFreq=Math.max(maxFreq,map.get(ch));
+            while((j-i+1)-maxFreq>k){
+                char left=s.charAt(i);
+                map.put(left,map.getOrDefault(left,0)-1);
+                if(map.get(left)==0) map.remove(left);
                 i++;
             }
+            maxLen=Math.max(maxLen,j-i+1);
             j++;
         }
-        return ans;
+        return maxLen;
     }
 }
