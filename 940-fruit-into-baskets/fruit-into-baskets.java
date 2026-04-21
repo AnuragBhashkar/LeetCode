@@ -1,0 +1,19 @@
+class Solution {
+    public int totalFruit(int[] fruits) {
+        Map<Integer,Integer> map=new HashMap<>();
+        int count=0;
+        int maxCount=0;
+        int i=0,j=0;
+        while(j<fruits.length){
+            map.put(fruits[j],map.getOrDefault(fruits[j],0)+1);
+            while(map.size()>2 && i<j){
+                map.put(fruits[i],map.getOrDefault(fruits[i],0)-1);
+                if(map.get(fruits[i])==0) map.remove(fruits[i]);
+                i++;
+            }
+            maxCount=Math.max(maxCount,(j-i+1));
+            j++;
+        }
+        return maxCount;
+    }
+}
