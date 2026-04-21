@@ -13,7 +13,7 @@ class Solution {
                 }
                 i++;
             }
-            while(nums[i]==0 && i<j && sum==goal){
+            while(nums[i]==0 && i<j){
                 zeroes++;
                 i++;
             }
