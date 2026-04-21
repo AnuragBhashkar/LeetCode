@@ -3,15 +3,13 @@ class Solution {
         int maxLen=1;
         int maxFreq=0;
         int i=0,j=0;
-        Map<Character,Integer> map=new HashMap<>();
+        int[] freq=new int[26];
         while(j<s.length()){
-            char ch=s.charAt(j);
-            map.put(ch,map.getOrDefault(ch,0)+1);
-            maxFreq=Math.max(maxFreq,map.get(ch));
-            while((j-i+1)-maxFreq>k){
-                char left=s.charAt(i);
-                map.put(left,map.getOrDefault(left,0)-1);
-                if(map.get(left)==0) map.remove(left);
+            char right=s.charAt(j);
+            freq[right-'A']++;
+            maxFreq=Math.max(maxFreq,freq[right-'A']);
+            if((j-i+1)-maxFreq>k){
+                freq[s.charAt(i)-'A']--;
                 i++;
             }
             maxLen=Math.max(maxLen,j-i+1);
