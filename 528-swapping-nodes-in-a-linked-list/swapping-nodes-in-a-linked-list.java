@@ -10,20 +10,19 @@
  */
 class Solution {
     public ListNode swapNodes(ListNode head, int k) {
+        List<ListNode> list=new ArrayList<>();
         ListNode temp=head;
-        int len=0;
         while(temp!=null){
+            list.add(temp);
             temp=temp.next;
-            len++;
         }
 
-        ListNode font=head;
-        for(int i=1;i<k;i++) font=font.next;
-        ListNode back=head;
-        for(int i=1;i<len-k+1;i++) back=back.next;
+        int n=list.size();
+        ListNode front=list.get(k-1);
+        ListNode back=list.get(n-k);
 
-        int tmp=font.val;
-        font.val=back.val;
+        int tmp=front.val;
+        front.val=back.val;
         back.val=tmp;
         return head;
     }
