@@ -10,21 +10,20 @@
  */
 class Solution {
     public ListNode sortList(ListNode head) {
-        if(head==null || head.next==null) return head;
-
-        ListNode firstHalf=head;
-        ListNode slow=head,fast=head;
-        while(fast.next!=null && fast.next.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
+        if(head == null || head.next == null){
+            return head;
         }
-        ListNode secondHalf=slow.next;
-        slow.next=null;
-
-        firstHalf=sortList(firstHalf);
-        secondHalf=sortList(secondHalf);
-        ListNode ans=merge(firstHalf,secondHalf);
-        return ans;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast.next!=null && fast.next.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode mid = slow.next;
+        slow.next = null;
+        ListNode left = sortList(head);
+        ListNode right = sortList(mid);
+        return merge(left, right);
     }
     public ListNode merge(ListNode list1,ListNode list2){
         ListNode dummy=new ListNode(0);
