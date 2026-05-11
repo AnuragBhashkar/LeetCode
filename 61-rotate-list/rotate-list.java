@@ -24,7 +24,6 @@ class Solution {
         if(k==0) return head;
 
         for(int i=1;i<=k;i++){
-            if(fast==null) return head;
             fast=fast.next;
         }
         while(fast.next!=null){
