@@ -10,19 +10,11 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        List<Integer> list=new ArrayList<>();
-        ListNode temp=head;
-        while(temp!=null){
-            list.add(temp.val);
-            temp=temp.next;
-        }
-        Collections.reverse(list);
-        ListNode dummy=new ListNode(0);
-        ListNode curr=dummy;
-        for(int val:list){
-            curr.next=new ListNode(val);
-            curr=curr.next;
-        }
-        return dummy.next;
+        if(head==null || head.next==null) return head;
+
+        ListNode newHead=reverseList(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newHead;
     }
 }
