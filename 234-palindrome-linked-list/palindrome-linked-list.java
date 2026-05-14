@@ -9,18 +9,37 @@
  * }
  */
 class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null) return head;
+        ListNode prev=null;
+        ListNode curr=head;
+        while(curr!=null){
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
     public boolean isPalindrome(ListNode head) {
         if(head.next==null) return true;
-        List<Integer> list=new ArrayList<>();
-        ListNode temp=head;
-        while(temp!=null){
-            list.add(temp.val);
-            temp=temp.next;
+        ListNode newHead=new ListNode(head.val);
+        ListNode t1=head.next;
+        ListNode t2=newHead;
+        while(t1!=null){
+            ListNode temp=new ListNode(t1.val);
+            t2.next=temp;
+            t2=t2.next;
+            t1=t1.next;
         }
-        Collections.reverse(list);
-        for(int val:list){
-            if(val!=head.val) return false;
-            head=head.next;
+        newHead=reverseList(newHead);
+        t1=head;
+        t2=newHead;
+        while(t1!=null){
+            if(t1.val!=t2.val) return false;
+            t1=t1.next;
+            t2=t2.next;
         }
         return true;
     }
