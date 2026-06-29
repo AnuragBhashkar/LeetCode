@@ -2,7 +2,8 @@ class Solution {
     public String decodeAtIndex(String s, int k) {
         int n=s.length();
         long size=0;
-        for(char ch:s.toCharArray()){
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
             if(Character.isDigit(ch)) size*=(ch-'0');
             else size+=1;
         }
