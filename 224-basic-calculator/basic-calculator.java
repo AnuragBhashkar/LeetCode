@@ -33,7 +33,6 @@ class Solution {
                 num=0;
                 sign=1;
             }
-            else continue;
         }
         result+=(sign*num);
         return result;
