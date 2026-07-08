@@ -1,13 +1,12 @@
 class Solution {
     public int subarraysWithKDistinct(int[] nums, int k) {
-        return slidingWindow(nums,k)-slidingWindow(nums,k-1);
+        return sub(nums,k)-sub(nums,k-1);
     }
-    public int slidingWindow(int[] nums,int k){
-        int n=nums.length;
+    private int sub(int[] nums,int k){
+        int i=0,j=0;
         int count=0;
         Map<Integer,Integer> map=new HashMap<>();
-        int i=0,j=0;
-        while(j<n){
+        while(j<nums.length){
             map.put(nums[j],map.getOrDefault(nums[j],0)+1);
             while(map.size()>k){
                 map.put(nums[i],map.get(nums[i])-1);
