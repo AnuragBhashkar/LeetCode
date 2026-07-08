@@ -3,10 +3,10 @@ class Solution {
         if(t.length()>s.length()) return "";
         Map<Character,Integer> map=new HashMap<>();
         for(char ch:t.toCharArray()) map.put(ch,map.getOrDefault(ch,0)+1);
-
-        int i=0,j=0,start=0;
         int count=t.length();
+        int i=0,j=0,start=0;
         int minLen=Integer.MAX_VALUE;
+
         while(j<s.length()){
             char ch=s.charAt(j);
             if(map.containsKey(ch)){
@@ -14,11 +14,10 @@ class Solution {
                 map.put(ch,map.get(ch)-1);
             }
             while(count==0){
-                if(j-i+1<minLen){
+                if((j-i+1)<minLen){
                     minLen=(j-i+1);
                     start=i;
                 }
-
                 char left=s.charAt(i);
                 if(map.containsKey(left)){
                     map.put(left,map.get(left)+1);
