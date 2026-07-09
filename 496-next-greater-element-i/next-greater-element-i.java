@@ -1,6 +1,6 @@
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Stack<Integer> st=new Stack<>();
+        Deque<Integer> st=new ArrayDeque<>();
         int[] arr=new int[nums2.length];
         arr[nums2.length-1]=-1;
         st.push(nums2[nums2.length-1]);
