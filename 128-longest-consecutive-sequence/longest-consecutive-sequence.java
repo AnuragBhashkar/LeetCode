@@ -3,9 +3,8 @@ class Solution {
         if(nums.length==0) return 0;
         Set<Integer> set=new HashSet<>();
         for(int i=0;i<nums.length;i++) set.add(nums[i]);
-        int max=1;
+        int count=1,max=1;
         for(int num:set){
-            int count=1;
             if(!set.contains(num-1)){
                 int curr=num;
                 while(set.contains(curr+1)){
@@ -14,8 +13,9 @@ class Solution {
                 }
             }
             max=Math.max(max,count);
+            count=1;
         }
-        // max=Math.max(max,count);
+        max=Math.max(max,count);
         return max;
     }
 }
