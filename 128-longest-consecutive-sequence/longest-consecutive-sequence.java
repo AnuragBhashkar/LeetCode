@@ -15,7 +15,6 @@ class Solution {
             max=Math.max(max,count);
             count=1;
         }
-        max=Math.max(max,count);
         return max;
     }
 }
