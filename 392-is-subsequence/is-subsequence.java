@@ -4,9 +4,7 @@ class Solution {
         if(t.length()==0) return false;
         int i=0,j=0;
         while(j<t.length()){
-            if(s.charAt(i)==t.charAt(j)){
-                i++;
-            }
+            if(s.charAt(i)==t.charAt(j)) i++;
             j++;
             if(i==s.length()) return true;
         }
