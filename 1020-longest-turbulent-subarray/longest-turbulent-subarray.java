@@ -11,9 +11,10 @@ class Solution {
 
         int ans=1,len=1;
         for(int i=0;i<n-1;i++){
-            if(comp[i]=='=') len=1;
-            else if(i>0 && comp[i]==comp[i-1]) len=2;
-            else len++;
+            if(comp[i]=='=') len=1; // "< > =" --->>> 1 so we can reset;
+            else if(i==0) len=2; // "comp=[>]" --->>> 2 because [9,4] is of len 2;
+            else if(comp[i]!=comp[i-1]) len++; //if different operators then len++;
+            else len=2; // "> >" --->>> 2 because [9.4.2] is of len 2;
             ans=Math.max(ans,len);
         }
         return ans;
