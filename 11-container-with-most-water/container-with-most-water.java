@@ -1,8 +1,6 @@
 class Solution {
     public int maxArea(int[] height) {
-        int maxA=0,area=0;
-        int n=height.length;
-        int i=0,j=n-1;
+        int i=0,j=height.length-1,maxA=0,area=0;
         while(i<j){
             int l=Math.min(height[i],height[j]);
             area=Math.max(area,l*(j-i));
